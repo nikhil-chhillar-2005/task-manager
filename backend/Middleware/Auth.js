@@ -9,7 +9,7 @@ const Auth=(req,res,next)=>{
         }
 
         jwt.verify(token,process.env.secret_token,(err,user)=>{
-            if(err) return res.status(400).json({err:'invalid authentication',token:token});
+            if(err) return res.status(400).json({err:'invalid authentication'});
         req.user=user;
         next();
         });
