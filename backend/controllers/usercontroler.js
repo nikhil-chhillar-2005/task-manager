@@ -50,6 +50,7 @@ const usercontrol={
 
             res.cookie('refreshtoken',refreshtoken,{
                 httpOnly:true,
+                secure:true,
                 path:"/user/refreshtoken"
             })
 
