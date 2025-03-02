@@ -8,7 +8,7 @@ const Auth=(req,res,next)=>{
             return res.status(400).json({error:'Invalid Autharization'});
         }
 
-        jwt.verify(token,process.env.secret_token,(err,user)=>{
+        jwt.verify(token,process.env.SECRET_TOKEN,(err,user)=>{
             if(err) return res.status(400).json({err:'invalid authentication' ,error:err});
         req.user=user;
         next();
