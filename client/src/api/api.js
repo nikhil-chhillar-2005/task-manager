@@ -13,7 +13,6 @@ const [alluser,setalluser]=useState(null);
             
             try {
                 if(token){
-                    console.log(token);
                     
                 const res=await axios.get('/user/getuser',{
                     headers:{Authorization:token}
