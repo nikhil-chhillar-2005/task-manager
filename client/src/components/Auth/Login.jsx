@@ -20,6 +20,8 @@ const Login = () => {
         setpassword('');
         window.location.href='/'
         } catch (error) {
+            console.log(error);
+            
             alert(error.response.data.message)         
         }
         
