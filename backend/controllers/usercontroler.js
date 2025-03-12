@@ -51,7 +51,7 @@ const usercontrol={
             res.cookie('refreshtoken',refreshtoken,{
                 httpOnly:true,
                 secure:false,
-                sameSite: 'Lax'
+                sameSite: 'Lax',
                 path:"/user/refreshtoken"
             });
             res.status(200).json({accesstoken});            
