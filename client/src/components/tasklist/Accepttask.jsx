@@ -8,7 +8,7 @@ const Accepttask = ({task,key}) => {
   const [token]=state.token
   const completed=async(title)=>{
     try {
-      await axios.put(`/user/complete/${user.Id}`,{
+      await axios.put(`${process.env.REACT_APP_API_LINK}/user/complete/${user.Id}`,{
         title:title
       },{
           headers:{Authorization:token}
@@ -16,14 +16,13 @@ const Accepttask = ({task,key}) => {
     } catch (error) {
       const h1Element = document.createElement('h1');
             h1Element.textContent = error.response.data; 
-              
             document.body.prepend(h1Element);
     }
     
   }
   const failed=async(title)=>{
     try {
-      await axios.put(`/user/failed/${user.Id}`,{
+      await axios.put(`${process.env.REACT_APP_API_LINK}/user/failed/${user.Id}`,{
         title:title
       },{
           headers:{Authorization:token}

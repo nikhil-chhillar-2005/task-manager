@@ -52,8 +52,7 @@ const usercontrol={
                 httpOnly:true,
                 secure:true,
                 path:"/user/refreshtoken"
-            })
-
+            });
             res.status(200).json({accesstoken});            
         } catch (error) {
             res.status(500).json({"error":error.message})
@@ -61,10 +60,9 @@ const usercontrol={
     },
     refresh:async(req,res)=>{
         try {
-            
-            
             const rf_token=req.cookies.refreshtoken;
-
+            
+            
             if(!rf_token) return res.status(400).json({message:"please login"});
 
             await jwt.verify(rf_token,process.env.REFRESH_TOKEN,(error,user)=>{

@@ -4,7 +4,8 @@ import axios from 'axios'
 const Login = () => {
     const[email,setemail]=useState('')
     const[password,setpassword]=useState('')
-
+    // console.log('hii');
+    
     const submithandler=async(e)=>{
         e.preventDefault();
         try {
@@ -12,7 +13,10 @@ const Login = () => {
                 email:email,
                 password:password
             }
-            await axios.post('/user/login',data);
+            
+
+            
+            await axios.post(`${process.env.REACT_APP_API_LINK}/user/login`,data,{ withCredentials: true });
            localStorage.setItem('firstlogin',true);
             
 
@@ -22,7 +26,7 @@ const Login = () => {
         } catch (error) {
             console.log(error);
             
-            alert(error.response.data.message)         
+            // alert(error.response.data.message)         
         }
         
     }

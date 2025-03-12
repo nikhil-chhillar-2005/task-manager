@@ -9,7 +9,12 @@ const PORT=process.env.PORT||8000;
 
 app.use(express.json());
 app.use(cookieparser());
-app.use(cors());
+app.use(cors({
+    origin: (origin, callback) => {
+        callback(null, origin || '*'); // Allow all origins dynamically
+    },
+    credentials:true
+}));
 
 app.use('/user',require('./router/userRoute'))
 

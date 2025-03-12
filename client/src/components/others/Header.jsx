@@ -4,14 +4,14 @@ import { Auth } from '../../context/Authprovider'
 
 const Header = ({name}) => {
   const auth=useContext(Auth);
-  const [islogin,setislogin]=auth.userapi.islogin
-  const [isadmin,setisadmin]=auth.userapi.isadmin
-  const [isuser,setuser]=auth.userapi.user
-  const [token,settoken]=auth.token
-  const [alluser,setalluser]=auth.userapi.alluser
+  const setislogin=auth.userapi.islogin[1]
+  const setisadmin=auth.userapi.isadmin[1]
+  const setuser=auth.userapi.user[1]
+  const settoken=auth.token[1]
+  const setalluser=auth.userapi.alluser[1]
   const logoutuser=async()=>{
     try {
-      await axios.get('/user/logout')
+      await axios.get(`${process.env.REACT_APP_API_LINK}/user/logout`)
      setisadmin(false);
      setislogin(false);
      settoken(null);

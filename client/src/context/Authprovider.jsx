@@ -10,7 +10,7 @@ const Authcontext = ({ children }) => {
    const [token, settoken] = useState(null);
    const refreshtoken=async()=>{
     try {
-      const res=await axios.post('/user/refreshtoken');
+      const res=await axios.post(`${process.env.REACT_APP_API_LINK}/user/refreshtoken`,{},{ withCredentials: true });
       settoken(res.data.accesstoken);    
     } catch (error) {
       console.log(error);     

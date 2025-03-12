@@ -1,6 +1,5 @@
 import React, {  useContext, useState } from 'react'
 import axios from 'axios'
-import Userapi from '../../api/api';
 import {Auth} from '../../context/Authprovider';
 const Taskcreateform = () => {
   const [token]=useContext(Auth).token
@@ -33,7 +32,7 @@ const Taskcreateform = () => {
       completed:false
     }
     try {
-      await axios.put(`http://localhost:3000/user/update/${taskform.assignto}`,newtask)
+      await axios.put(`${process.env.REACT_APP_API_LINK}/user/update/${taskform.assignto}`,newtask)
       const h1=document.createElement('h1');
             h1.classList="alert font-bold font-[32px] text-center"
             h1.textContent="Task  created";

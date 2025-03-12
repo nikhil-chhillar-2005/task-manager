@@ -5,16 +5,17 @@ import Employedashboard from "./components/Dashboard/Employedashboard";
 import { Auth } from "./context/Authprovider";
 
 
+
 function App() {
   const auth=useContext(Auth);
-
-  
   const [islogin]=auth.userapi.islogin;
   const [isadmin]=auth.userapi.isadmin;
-
+  
+  
   return (
     <div className="app ">
       {
+        
         !islogin? <Login  />:''
       }
       {
