@@ -20,7 +20,7 @@ const [alluser,setalluser]=useState(null);
                 
                 if(res.data.user.role===1)
                     { 
-                        const all=await axios.get(`${process.env.REACT_APP_API_LINK}/user/getalluser`,{
+                        const all=await axios.get(`/user/getalluser`,{
                             headers:{Authorization:token}
                         });
                         setalluser(all.data.users);
