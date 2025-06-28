@@ -49,11 +49,14 @@ const usercontrol={
             const refreshtoken=createrefreshtoken({id:user._id});
 
             res.cookie('refreshtoken',refreshtoken,{
-                httpOnly:true,
-                secure:false,
-                sameSite: 'Lax',
-                path:"/user/refreshtoken"
+                httpOnly:true,  // Only accessible by the web server
+                sameSite:"strict", // Prevent CSRF attacks
+                maxAge:15*24*60*60*1000, // 15 days
+                secure:process.env.NODE_ENV!=="development", // Only set the cookie to be sent over HTTPS in production
+                
             });
+           
+            
             res.status(200).json({accesstoken});            
         } catch (error) {
             res.status(500).json({"error":error.message})

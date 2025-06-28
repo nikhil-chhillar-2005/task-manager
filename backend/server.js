@@ -1,4 +1,5 @@
 const express=require('express');
+const path =require('path');
 const app=express();
 const mongoose=require('mongoose')
 require('dotenv').config();
@@ -10,10 +11,7 @@ const PORT=process.env.PORT||8000;
 app.use(express.json());
 app.use(cookieparser());
 app.use(cors({
-    origin: (origin, callback) => {
-        callback(null, origin || '*'); // Allow all origins dynamically
-    },
-    credentials:true
+    credentials:true,
 }));
 
 app.use('/user',require('./router/userRoute'))
@@ -22,6 +20,11 @@ app.listen(PORT,()=>{
     console.log('server running on port ',PORT);
 })
 
+app.use(express.static(path.join(__dirname,"../client/build")))
+
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname,"../client/","build","index.html"));
+})
 
 // db connection
 

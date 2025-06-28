@@ -13,9 +13,6 @@ const Login = () => {
                 email:email,
                 password:password
             }
-            
-
-            
             await axios.post(`${process.env.REACT_APP_API_LINK}/user/login`,data,{ withCredentials: true });
            localStorage.setItem('firstlogin',true);
             
