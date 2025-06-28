@@ -32,7 +32,7 @@ const Taskcreateform = () => {
       completed:false
     }
     try {
-      await axios.put(`${process.env.REACT_APP_API_LINK}/user/update/${taskform.assignto}`,newtask)
+      await axios.put(`/user/update/${taskform.assignto}`,newtask)
       const h1=document.createElement('h1');
             h1.classList="alert font-bold font-[32px] text-center"
             h1.textContent="Task  created";

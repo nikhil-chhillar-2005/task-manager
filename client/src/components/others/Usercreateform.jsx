@@ -16,7 +16,7 @@ const Usercreateform = () => {
     const newuserform=async(e)=>{
         e.preventDefault();
         try {
-            await axios.post(`${process.env.REACT_APP_API_LINK}/user/register`,formdata);
+            await axios.post(`user/register`,formdata);
             setformdata({
                 Id:"",
                 name:"",

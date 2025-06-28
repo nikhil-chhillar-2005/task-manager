@@ -22,7 +22,7 @@ const Accepttask = ({task,key}) => {
   }
   const failed=async(title)=>{
     try {
-      await axios.put(`${process.env.REACT_APP_API_LINK}/user/failed/${user.Id}`,{
+      await axios.put(`/user/failed/${user.Id}`,{
         title:title
       },{
           headers:{Authorization:token}

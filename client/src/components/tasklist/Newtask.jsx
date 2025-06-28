@@ -8,7 +8,7 @@ const Newtask = ({ task,key }) => {
   
 const accept=async(title)=>{
  try {
-    await axios.put(`${process.env.REACT_APP_API_LINK}/user/accept/${user.Id}`,{
+    await axios.put(`/user/accept/${user.Id}`,{
     title:title
   },{
       headers:{Authorization:token}
