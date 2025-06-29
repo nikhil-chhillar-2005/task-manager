@@ -14,7 +14,7 @@ const [alluser,setalluser]=useState(null);
             try {
                 if(token){
                     
-                const res=await axios.get(`${process.env.REACT_APP_API_LINK}/user/getuser`,{
+                const res=await axios.get(`/user/getuser`,{
                     headers:{Authorization:token}
                 })    
                 
